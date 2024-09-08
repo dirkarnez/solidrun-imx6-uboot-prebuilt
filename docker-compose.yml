@@ -1,10 +1,25 @@
 
-# Example config
+# # Example config
 
-version: '3.2'
+# version: '3.2'
 
+# services:
+#   car-thing-builder:
+#     image: bishopdynamics/car-thing-builder:latest
+#     container_name: car_thing_builder
+#     build: .
 services:
-  car-thing-builder:
-    image: bishopdynamics/car-thing-builder:latest
-    container_name: car_thing_builder
+  u_boot_imx6:
     build: .
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    user: root
+    volumes:
+      - .:/src/workspace
+      - ./build_output:/tmp/build_output
+# volumes:
+#   workspace:
+#     driver: local
+#   build_output: 
+#     driver: local
+  
