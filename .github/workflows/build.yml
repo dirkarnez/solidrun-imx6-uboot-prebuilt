@@ -31,12 +31,15 @@ jobs:
         #   msystem: MINGW64
         #   install: make autoconf automake libtool autogen perl
           
-      - name: curl x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z
-        shell: cmd
+      - shell: cmd
         run: .\setup.cmd
         
-      - name: set PATH, check mingw version, cmake generate, build and install
-        shell: msys2 {0}
+      - shell: msys2 {0}
+        run: |
+            cd "$USERPROFILE/Downloads" && \
+            ls -R
+            
+      - shell: msys2 {0}
         run: |
             workspace=$(pwd) && \
             export PATH="$USERPROFILE/Downloads/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/bin:$workspace/msys64/usr/bin:/usr/bin" && \
