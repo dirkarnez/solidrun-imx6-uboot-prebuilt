@@ -35,19 +35,19 @@ jobs:
           
       - name: Install MSYS2
         uses: msys2/setup-msys2@v2
-        # with:
-        #   msystem: MINGW64
-        #   install: make autoconf automake libtool autogen perl
+        with:
+          msystem: MINGW64
+          install: autoconf automake libtool autogen perl
             
       - shell: msys2 {0}
         run: |
-            workspace=$(pwd) && \
-            export PATH="$USERPROFILE/Downloads/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/bin:$workspace/msys64/usr/bin:/usr/bin" && \
-            cd u-boot-imx6 && \
-            export CROSS_COMPILE="aarch64-none-elf-" && \
-            aarch64-none-elf-g++ --version && \
-            mingw32-make && \
-            ls
+          workspace=$(pwd) && 
+          export PATH="$USERPROFILE/Downloads/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/bin:$workspace/msys64/usr/bin:/usr/bin" && 
+          cd u-boot-imx6 && 
+          export CROSS_COMPILE="aarch64-none-elf-" && 
+          aarch64-none-elf-g++ --version && 
+          mingw32-make && 
+          ls
             
         
 #       - name: Archive Release
