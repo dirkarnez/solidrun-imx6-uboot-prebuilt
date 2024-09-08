@@ -17,6 +17,14 @@ jobs:
     #   mingwTargetZip: openssl-${{ github.ref_name }}-x86_64-8.1.0-release-posix-seh-rt_v6-rev0.zip
     steps:
       - uses: actions/checkout@v4
+      
+      - shell: cmd
+        run: .\setup.cmd
+        
+      - shell: msys2 {0}
+        run: |
+            cd "$USERPROFILE/Downloads/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/bin" && \
+            ls -R
 
       - uses: actions/checkout@v4
         with:
@@ -30,14 +38,6 @@ jobs:
         # with:
         #   msystem: MINGW64
         #   install: make autoconf automake libtool autogen perl
-          
-      - shell: cmd
-        run: .\setup.cmd
-        
-      - shell: msys2 {0}
-        run: |
-            cd "$USERPROFILE/Downloads" && \
-            ls -R
             
       - shell: msys2 {0}
         run: |
