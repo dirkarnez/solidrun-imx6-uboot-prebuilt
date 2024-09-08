@@ -18,9 +18,6 @@ del x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z
 if not exist "%USERPROFILE%\Downloads\arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf\arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf\bin" (
 cd /d "%TEMP%" && ^
 %SystemRoot%\System32\curl.exe "https://developer.arm.com/-/media/Files/downloads/gnu/12.2.rel1/binrel/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf.zip" -L -O -J && ^
-C:\PROGRA~1\7-Zip\7z.exe x arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf.zip -o"%USERPROFILE%\Downloads\arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf" && ^
+C:\PROGRA~1\7-Zip\7z.exe x arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf.zip -y -o"%USERPROFILE%\Downloads\arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf" && ^
 del arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf.zip
 )
-
-
-pause
