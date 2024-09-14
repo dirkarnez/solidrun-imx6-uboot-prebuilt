@@ -6,7 +6,7 @@ solidrun-imx6-uboot-prebuilt
 - [arm-linux-gnueabihf、aarch64-linux-gnu等ARM交叉编译GCC的区别_aarch64-elf-gcc aarch64-linux-gnu-CSDN博客](https://blog.csdn.net/Namcodream521/article/details/88379307)
 
 ### Notes
-- Compiling u-boot requires Linux
+- Compiling u-boot requires Linux and **non-baremetal** gcc compiler
 - SPL = secondary program loader
     - [u-boot spl 学习总结 - 小麦大叔 - 博客园](https://www.cnblogs.com/unclemac/p/12783383.html)
 - Compilation requires some .so files (I guess QEMU is compiled and invoked behind-the-scene) that i have to make symlink for them which installed by `gcc-aarch64-linux-gnu` and `g++-aarch64-linux-gnu` packages
@@ -35,11 +35,16 @@ solidrun-imx6-uboot-prebuilt
     - [i.MX6 U-Boot - Developer Center -  SolidRun](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287179374/i.MX6+U-Boot#Download-Binaries)
 3. Boot the microSD card
 4. OS loads the SPL and then U-Boot, after that U-Boot will search for all attached storage for bootable files such as boot scripts, extlinux configuration or EFI applications.
+    0. References
+        - [bootz 启动 kernel_image->ep-CSDN博客](https://blog.csdn.net/lyndon_li/article/details/126150965)
+        - [uboot启动内核命令：bootz、bootm、boot_uboot bootm-CSDN博客](https://blog.csdn.net/Calmer_/article/details/131070786)
+        - Boot script is a DSL from U-Boot, written in a separate file (for more flexibility) or embedded in U-Boot code
     1. load the DeviceTree Binary (e.g. bcm2711-rpi-4-b.dtb)
     2. load the kernel image (e.g. start4.elf)
     3. load the initramfs (**Linux only**, optional) or your own baremetal application loaded by kernel image
     4. set boot commandline options
     5. execute
+
 
 
 Write your own baremetal application that u-boot loads
