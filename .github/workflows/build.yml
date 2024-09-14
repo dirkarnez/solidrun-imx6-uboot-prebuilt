@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Change composer cache owner
-        run: |
-          sudo chown -R 1000:1000 ./
+      # - name: Change composer cache owner
+      #   run: |
+      #     sudo chown -R 1000:1000 ./
 
     # sudo chown :1000 testdir/
     # sudo chmod g+s testdir/

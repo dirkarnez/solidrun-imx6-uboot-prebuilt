@@ -1,10 +1,5 @@
 FROM ubuntu:latest
 
-RUN addgroup --g 1000 groupcontainer
-RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
- 
-USER containeruser
-
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
@@ -20,6 +15,11 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
    bash \
    bc
 
+# RUN addgroup --g 1000 groupcontainer
+# RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
+
+# USER containeruser
+
 RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
    ln -f -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib && \
    ln -f -s /usr/aarch64-linux-gnu/lib/libc.so.6 /lib && \
@@ -32,7 +32,7 @@ RUN cd /opt; \
    rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
 
 RUN mkdir /workspace
-COPY . /workspace
+COPY --chmod=0644 . /workspace
 
 RUN chmod +x /workspace/makeimage.sh
 
