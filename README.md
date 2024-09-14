@@ -24,6 +24,26 @@ solidrun-imx6-uboot-prebuilt
       ```
     - Solution: I have changed `make SPL` target to `make _SPL`
 
+### How to use the prebuilt binary
+1. Better get a linux (for `dd` utility), or try [dd for windows](http://www.chrysocome.net/dd)
+2. use `dd` to copy the binary content of `SPL` and `u-boot.img` to microSD card
+    - ```bash
+      dd if=SPL of=/dev/sdX bs=1k seek=1 conv=sync
+      dd if=u-boot.img of=/dev/sdX bs=1k seek=69 conv=sync
+      ```
+    - > The Boot-ROM searches for the SPL after the first 1024 bytes. The SPL then looks for the full u-boot binary at both 69k and 42k. The dd command can be used for writing SPL and u-boot to these locations on your microSD card. Substitute sdX by the device node of your sdcard.
+    - [i.MX6 U-Boot - Developer Center -  SolidRun](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287179374/i.MX6+U-Boot#Download-Binaries)
+3. Boot the microSD card
+4. OS loads the SPL and then U-Boot, after that U-Boot will search for all attached storage for bootable files such as boot scripts, extlinux configuration or EFI applications.
+    1. load the DeviceTree Binary (e.g. bcm2711-rpi-4-b.dtb)
+    2. load the kernel image (e.g. start4.elf)
+    3. load the initramfs (**Linux only**, optional) or your own baremetal application loaded by kernel image
+    4. set boot commandline options
+    5. execute
+
+
+Write your own baremetal application that u-boot loads
+    
 ### Tutorials
 - [Compiling latest U-Boot for i.MX6 (2015 edition) | Laird Connectivity is Now Ezurio](https://www.ezurio.com/resources/software-announcements/compiling-latest-u-boot-for-i-mx6-2015-edition)
 
