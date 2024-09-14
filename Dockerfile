@@ -35,4 +35,5 @@ VOLUME /workspace
 
 CMD /workspace/
 
-CMD [ "./makeimage.sh" ]
+CMD ls && \
+   ./makeimage.sh
