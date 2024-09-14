@@ -37,7 +37,7 @@ RUN cd /opt; \
    rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
 
 RUN mkdir /workspace
-COPY --chown=runner:docker . /workspace
+COPY . /workspace
 
 RUN chmod +x /workspace/makeimage.sh
 

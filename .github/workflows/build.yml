@@ -26,33 +26,25 @@ jobs:
           docker compose up --build && docker compose down 
     # ./build.sh
         
-#       - name: Archive Release
-#         uses: thedoctor0/zip-release@master
-#         with:
-#           type: 'zip'
-#           directory: "workspace/fhir"
-#           filename: "${{ env.targetZip }}"
+      - working-directory: u-boot-imx6
+        run: |
+          mkdir dist && \
+          mv _SPL ./dist/SPL && \
+          mv 123.txt ./dist
 
-      # - name: Release prebuilt
-      #   uses: ncipollo/release-action@v1
-      #   with:
-      #     artifacts: "build_output/*.zip"
-      #     allowUpdates: true
-      #     token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          directory: "u-boot-imx6/dist"
+          filename: "u-boot-imx6-${{ github.ref_name }}.zip"
         
-#       - name: Archive Release
-#         uses: thedoctor0/zip-release@master
-#         with:
-#           type: 'zip'
-#           directory: "u-boot-imx6/${{ env.installationPath }}"
-#           filename: "${{ env.mingwTargetZip }}"
-        
-#       - name: Release prebuilt
-#         uses: ncipollo/release-action@v1
-#         with:
-#           artifacts: "u-boot-imx6/${{ env.installationPath }}/${{ env.mingwTargetZip }}"
-#           allowUpdates: true
-#           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Release prebuilt
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "u-boot-imx6/dist/u-boot-imx6-${{ github.ref_name }}.zip"
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
 
 # cd u-boot-imx6
