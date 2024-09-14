@@ -1,5 +1,10 @@
 FROM ubuntu:latest
 
+RUN addgroup --g 1000 groupcontainer
+RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
+ 
+USER containeruser
+
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
@@ -34,5 +39,5 @@ RUN chmod +x /workspace/makeimage.sh
 WORKDIR /workspace
 VOLUME /workspace
 
-CMD ls && \
+CMD ls -la && \
    ./makeimage.sh

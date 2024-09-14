@@ -15,8 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Change composer cache owner
+        run: |
+          sudo chown -R 1000:1000 ./
+
+    # sudo chown :1000 testdir/
+    # sudo chmod g+s testdir/
       - name: Build the stack
-        run: docker compose up --build && docker compose down # ./build.sh
+        run: |
+          docker compose up --build && docker compose down 
+    # ./build.sh
         
 #       - name: Archive Release
 #         uses: thedoctor0/zip-release@master
