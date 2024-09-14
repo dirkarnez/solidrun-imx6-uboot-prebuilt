@@ -15,9 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Change composer cache owner
-        run: |
-          sudo chown -R runner:docker "$GITHUB_WORKSPACE"
+      - run: |
+          sudo chown -R runner:docker ./
 
     # sudo chown :1000 testdir/
     # sudo chmod g+s testdir/

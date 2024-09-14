@@ -15,6 +15,11 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
    bash \
    bc
 
+# RUN adduser --disabled-password --gecos "" --uid 1001 runner \
+#     && groupadd docker --gid 123 \
+#     && usermod -aG sudo runner \
+#     && usermod -aG docker runner \
+
 # RUN addgroup --g 1000 groupcontainer
 # RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
 
@@ -32,7 +37,7 @@ RUN cd /opt; \
    rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
 
 RUN mkdir /workspace
-COPY --chmod=0644 . /workspace
+COPY --chown=runner:docker . /workspace
 
 RUN chmod +x /workspace/makeimage.sh
 
