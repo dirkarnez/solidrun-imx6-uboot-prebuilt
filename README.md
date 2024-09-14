@@ -35,15 +35,15 @@ solidrun-imx6-uboot-prebuilt
     - [i.MX6 U-Boot - Developer Center -  SolidRun](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287179374/i.MX6+U-Boot#Download-Binaries)
 3. Boot the microSD card
 4. OS loads the SPL and then U-Boot, after that U-Boot will search for all attached storage for bootable files such as boot scripts, extlinux configuration or EFI applications.
-    0. References
+    1. References
         - [bootz 启动 kernel_image->ep-CSDN博客](https://blog.csdn.net/lyndon_li/article/details/126150965)
         - [uboot启动内核命令：bootz、bootm、boot_uboot bootm-CSDN博客](https://blog.csdn.net/Calmer_/article/details/131070786)
         - Boot script is a DSL from U-Boot, written in a separate file (for more flexibility) or embedded in U-Boot code
-    1. load the DeviceTree Binary (e.g. bcm2711-rpi-4-b.dtb)
-    2. load the kernel image (e.g. start4.elf)
-    3. load the initramfs (**Linux only**, optional) or your own baremetal application loaded by kernel image
-    4. set boot commandline options
-    5. execute
+    2. load the DeviceTree Binary (e.g. bcm2711-rpi-4-b.dtb)
+    3. load the kernel image (e.g. start4.elf)
+    4. load the initramfs (**Linux only**, optional) or your own baremetal application loaded by kernel image
+    5. set boot commandline options
+    6. execute
 
 
 
