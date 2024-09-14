@@ -90,9 +90,9 @@ endif
 MKIMAGEFLAGS_SPL = -n $(filter-out $(PLUGIN).bin $< $(PHONY),$^) -T imximage \
 	-e $(CONFIG_SPL_TEXT_BASE)
 
-SPL: MKIMAGEOUTPUT = SPL.log
+_SPL: MKIMAGEOUTPUT = SPL.log
 
-SPL: spl/u-boot-spl.bin $(IMX_CONFIG) $(PLUGIN).bin FORCE
+_SPL: spl/u-boot-spl.bin $(IMX_CONFIG) $(PLUGIN).bin FORCE
 	$(call if_changed,mkimage)
 
 MKIMAGEFLAGS_u-boot.uim = -A arm -O U-Boot -a $(CONFIG_SYS_TEXT_BASE) \
@@ -107,7 +107,7 @@ append = cat $(filter-out $< $(PHONY), $^) >> $@
 quiet_cmd_pad_cat = CAT     $@
 cmd_pad_cat = $(cmd_objcopy) && $(append) || rm -f $@
 
-u-boot-with-spl.imx: SPL u-boot.uim FORCE
+u-boot-with-spl.imx: _SPL u-boot.uim FORCE
 	$(call if_changed,pad_cat)
 
 u-boot-with-nand-spl.imx: spl/u-boot-nand-spl.imx u-boot.uim FORCE
@@ -117,10 +117,10 @@ quiet_cmd_u-boot-nand-spl_imx = GEN     $@
 cmd_u-boot-nand-spl_imx = (printf '\000\000\000\000\106\103\102\040\001' && \
 	dd bs=1015 count=1 if=/dev/zero 2>/dev/null) | cat - $< > $@
 
-spl/u-boot-nand-spl.imx: SPL FORCE
+spl/u-boot-nand-spl.imx: _SPL FORCE
 	$(call if_changed,u-boot-nand-spl_imx)
 
-targets += $(addprefix ../../../,$(IMX_CONFIG) SPL u-boot.uim spl/u-boot-nand-spl.imx)
+targets += $(addprefix ../../../,$(IMX_CONFIG) _SPL u-boot.uim spl/u-boot-nand-spl.imx)
 
 obj-$(CONFIG_MX5) += mx5/
 obj-$(CONFIG_MX6) += mx6/
