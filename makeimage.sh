@@ -3,12 +3,11 @@
 # an echo that will stand out in the logs
 function announce () {
     echo "##########################################################################################"
-    echo "##############################  $*  #######################################"
+    echo "##############################  $*  ######################################################"
     echo "##########################################################################################"
 }
 
 set -e
-
 
 export PATH=/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH
 
@@ -21,5 +20,3 @@ read -p "234234"
 make CC=arm-none-linux-gnueabihf-gcc "$UBOOT_CONFIG"
 make 
 announce "image build appears to have been successful"
-
-
