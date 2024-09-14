@@ -1,4 +1,4 @@
-name: cpp-cmake-mingw-prebuilt-release-actions-workflow
+name: docker-compose-actions-workflow
 on:
   push:
     # Sequence of patterns matched against refs/tags
@@ -6,49 +6,31 @@ on:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
       - 'c*'
 
+permissions:
+    contents: write
+    
 jobs:
-  build:
-    name: Create Release
-    runs-on: windows-latest
-    # env:
-    #   libraryName: openssl
-    #   installationPath: openssl-installation
-    #   tagName: openssl-3.1.3 # target tag
-    #   mingwTargetZip: openssl-${{ github.ref_name }}-x86_64-8.1.0-release-posix-seh-rt_v6-rev0.zip
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       
-      - shell: cmd
-        run: .\setup.cmd
+      - name: Build the stack
+        run: ./build.sh
         
-      - shell: cmd
-        run: |
-          cd /d "%USERPROFILE%/Downloads/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/bin" &&^
-          dir
+#       - name: Archive Release
+#         uses: thedoctor0/zip-release@master
+#         with:
+#           type: 'zip'
+#           directory: "workspace/fhir"
+#           filename: "${{ env.targetZip }}"
 
-      - uses: actions/checkout@v4
-        with:
-          repository: SolidRun/u-boot
-          path: u-boot-imx6
-          ref: v2018.01-solidrun-imx6
-          submodules: true
-          
-      - name: Install MSYS2
-        uses: msys2/setup-msys2@v2
-        with:
-          msystem: MINGW64
-          install: autoconf automake libtool autogen perl
-            
-      - shell: msys2 {0}
-        run: |
-          workspace=$(pwd) && 
-          export PATH="$(cygpath -u $USERPROFILE)/Downloads/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/arm-gnu-toolchain-12.2.rel1-mingw-w64-i686-aarch64-none-elf/bin:$(cygpath -u $USERPROFILE)/Downloads/x86_64-8.1.0-release-posix-seh-rt_v6-rev0/mingw64/bin:$workspace/msys64/usr/bin:/usr/bin" && 
-          cd u-boot-imx6 && 
-          export CROSS_COMPILE="aarch64-none-elf-" && 
-          aarch64-none-elf-g++ --version && 
-          mingw32-make && 
-          ls
-            
+      # - name: Release prebuilt
+      #   uses: ncipollo/release-action@v1
+      #   with:
+      #     artifacts: "build_output/*.zip"
+      #     allowUpdates: true
+      #     token: ${{ secrets.GITHUB_TOKEN }}
         
 #       - name: Archive Release
 #         uses: thedoctor0/zip-release@master
