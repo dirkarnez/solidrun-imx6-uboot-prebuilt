@@ -32,7 +32,5 @@ COPY . /workspace
 WORKDIR /workspace
 VOLUME /workspace
 
-CMD /workspace/
-
 CMD ls && \
    sudo ./makeimage.sh
