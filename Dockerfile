@@ -14,7 +14,8 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
    curl \
    ca-certificates \
    make \
-   bash
+   bash \
+   bc
 
 RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
    ln -f -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib && \
