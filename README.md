@@ -45,9 +45,12 @@ solidrun-imx6-uboot-prebuilt
     5. set boot commandline options
     6. execute
 
-
-
-Write your own baremetal application that u-boot loads
+### For baremetal application
+1. Set Up U-Boot: Configure U-Boot to load your binary (often in ELF or binary format).
+2. Write Startup Code: Initialize the stack, set up the hardware, and jump to your main function.
+3. Direct Hardware Access: Use memory-mapped I/O to interact with peripherals.
+4. Compile and Link: Use a cross-compiler to build your program for the target architecture.
+5. Upload and Test: Load the binary using U-Boot commands and test functionality.
     
 ### Tutorials
 - [Compiling latest U-Boot for i.MX6 (2015 edition) | Laird Connectivity is Now Ezurio](https://www.ezurio.com/resources/software-announcements/compiling-latest-u-boot-for-i-mx6-2015-edition)
