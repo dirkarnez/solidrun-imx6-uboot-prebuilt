@@ -35,4 +35,4 @@ VOLUME /workspace
 CMD /workspace/
 
 CMD ls && \
-   ./makeimage.sh
+   sudo ./makeimage.sh
