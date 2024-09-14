@@ -15,8 +15,8 @@ services:
     tty: true        # docker run -t
     user: root
     volumes:
-      - .:/src/workspace
-      - ./build_output:/tmp/build_output
+      - .:/workspace
+      # - ./build_output:/tmp/build_output
 # volumes:
 #   workspace:
 #     driver: local
