@@ -12,7 +12,7 @@ solidrun-imx6-uboot-prebuilt
 - Compilation requires some .so files (I guess QEMU is compiled and invoked behind-the-scene) that i have to make symlink for them which installed by `gcc-aarch64-linux-gnu` and `g++-aarch64-linux-gnu` packages
     - https://github.com/conan-io/conan/issues/16070
     - [qemu /lib/ld-linux-aarch64.so.1: No such file or directory_linux编译 ld-linux-aarch64.so.1:no such-CSDN博客](https://blog.csdn.net/FJDJFKDJFKDJFKD/article/details/112828882)
-- `SPL` issue
+- `SPL` issue is caused by Windows file system host running docker (Windows is case insensitive and causes Docker's container to fail at `make SPL`):
     - ```sh
       OBJCOPY spl/u-boot-spl-nodtb.bin
       COPY    spl/u-boot-spl.bin
@@ -22,6 +22,7 @@ solidrun-imx6-uboot-prebuilt
       make[1]: *** [arch/arm/mach-imx/Makefile:96: SPL] Error 1
       make: *** [Makefile:1072: SPL] Error 2
       ```
+    - Solution: I have changed `make SPL` target to `make _SPL` for supporting Windows file system
 
 ### Tutorials
 - [Compiling latest U-Boot for i.MX6 (2015 edition) | Laird Connectivity is Now Ezurio](https://www.ezurio.com/resources/software-announcements/compiling-latest-u-boot-for-i-mx6-2015-edition)
