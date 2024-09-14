@@ -1,11 +1,10 @@
 FROM ubuntu:latest
 
-# Install dependencies from apt
-
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
    build-essential \
+   sudo \
    git \
    zip \
    unzip \
