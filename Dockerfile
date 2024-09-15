@@ -43,7 +43,5 @@ WORKDIR /workspace
 VOLUME /workspace
 
 # Print the UID and GID
-CMD echo 'Inside Container:' && \
-   echo 'User: $(whoami) UID: $(id -u) GID: $(id -g)' && \
-   ls -la && \
+CMD ls -la && \
    ./makeimage.sh
