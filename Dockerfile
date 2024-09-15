@@ -39,10 +39,11 @@ RUN cd /opt; \
 RUN mkdir /workspace
 COPY . /workspace
 
-RUN chmod +x /workspace/makeimage.sh
-
 WORKDIR /workspace
 VOLUME /workspace
 
-CMD ls -la && \
+# Print the UID and GID
+CMD echo 'Inside Container:' && \
+   echo 'User: $(whoami) UID: $(id -u) GID: $(id -g)' && \
+   ls -la && \
    ./makeimage.sh
