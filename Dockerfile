@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM --platform=linux/amd64 ubuntu:latest
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
