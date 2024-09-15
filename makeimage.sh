@@ -31,6 +31,8 @@ file arm-none-linux-gnueabihf-gcc
 # which cc
 announce "Building u-boot"
 # make CC=arm-none-linux-gnueabihf-gcc "$UBOOT_CONFIG"
+
+# make mrproper
 make CC=arm-none-linux-gnueabihf-gcc "$UBOOT_CONFIG"
 make 
 announce "image build appears to have been successful"
