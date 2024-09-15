@@ -26,10 +26,9 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
 
 # USER containeruser
 RUN apt-get install -y \
-   gcc-arm-linux-gnueabi && \
-   binutils-arm-linux-gnueabi && \
+   gcc-arm-none-eabi \
    gcc-arm-linux-gnueabihf
-   
+
 RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
    ln -f -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib && \
    ln -f -s /usr/aarch64-linux-gnu/lib/libc.so.6 /lib && \
