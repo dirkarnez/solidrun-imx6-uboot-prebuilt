@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo 'User: $(whoami) UID: $(id -u) GID: $(id -g)'
+echo "User: $(whoami) UID: $(id -u) GID: $(id -g)"
 gcc --version
 # an echo that will stand out in the logs
 function announce () {
@@ -12,11 +12,11 @@ function announce () {
 set -e
 
 cd /opt; \
-   wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf.tar.xz; \
-   tar xvfJ gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf.tar.xz; \
-   rm gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf.tar.xz
+   wget https://armkeil.blob.core.windows.net/developer/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz; \
+   tar xvfJ gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz; \
+   rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
 
-export PATH=/opt/gcc-arm-10.3-2021.07-x86_64-arm-none-linux-gnueabihf/bin:$PATH
+export PATH=/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH
 
 cd /workspace/u-boot-imx6
 export CROSS_COMPILE="arm-none-linux-gnueabihf-"
