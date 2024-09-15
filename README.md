@@ -4,7 +4,7 @@ solidrun-imx6-uboot-prebuilt
     - `git clone --branch v2018.01-solidrun-imx6 https://github.com/SolidRun/u-boot.git /workspace/u-boot-imx6`
     - > Note: The resulting binaries are `SPL` and `u-boot.img`.
 - [arm-linux-gnueabihf、aarch64-linux-gnu等ARM交叉编译GCC的区别_aarch64-elf-gcc aarch64-linux-gnu-CSDN博客](https://blog.csdn.net/Namcodream521/article/details/88379307)
-
+- [u-boot/board/solidrun/mx6cuboxi/README at v2018.01-solidrun-imx6 · SolidRun/u-boot](https://github.com/SolidRun/u-boot/blob/v2018.01-solidrun-imx6/board/solidrun/mx6cuboxi/README)
 ### Notes
 - Compiling u-boot requires Linux and **non-baremetal** gcc compiler
 - SPL = secondary program loader
@@ -24,6 +24,13 @@ solidrun-imx6-uboot-prebuilt
       ```
     - Solution: I have changed `make SPL` target to `make _SPL`
 
+### How about firmwares
+- Firmwares are usually closed-source because it is written and provided by chip (e.g. WIFI chip) vendors
+    - [SolidRun/deb-pkg_cuboxi-firmware-wireless: Vendor firmware required for the wireless chips on the SolidRun i.MX6 based SOMs](https://github.com/SolidRun/deb-pkg_cuboxi-firmware-wireless)
+        - This repo SolidRun package firmware from vendor Broadcom  
+    - You can usually access the hardware registers and peripherals directly, even if the firmware is closed-source.
+    - firmware makes things easier, in baremetal programming we may still access hardware directly (firmware is like helper library)
+  
 ### How to use the prebuilt binary
 1. Better get a linux (for `dd` utility), or try [dd for windows](http://www.chrysocome.net/dd)
 2. use `dd` to copy the binary content of `SPL` and `u-boot.img` to microSD card

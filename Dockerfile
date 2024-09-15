@@ -13,7 +13,8 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
    ca-certificates \
    make \
    bash \
-   bc
+   bc \
+   file
 
 # RUN adduser --disabled-password --gecos "" --uid 1001 runner \
 #     && groupadd docker --gid 123 \
@@ -24,6 +25,9 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
 # RUN adduser -u 1000 -G groupcontainer -h /home/containeruser -D containeruser
 
 # USER containeruser
+# RUN apt-get install -y \
+#    gcc-arm-none-eabi \
+#    gcc-arm-linux-gnueabihf=4:10.2.1-1
 
 RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
    ln -f -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib && \
