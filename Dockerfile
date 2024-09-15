@@ -13,7 +13,8 @@ RUN apt-get -y --no-install-recommends --allow-unauthenticated install \
    ca-certificates \
    make \
    bash \
-   bc
+   bc \
+   file
 
 # RUN adduser --disabled-password --gecos "" --uid 1001 runner \
 #     && groupadd docker --gid 123 \
