@@ -24,6 +24,13 @@ solidrun-imx6-uboot-prebuilt
       ```
     - Solution: I have changed `make SPL` target to `make _SPL`
 
+### How about firmwares
+- Firmwares are usually closed-source because it is written and provided by chip (e.g. WIFI chip) vendors
+    - [SolidRun/deb-pkg_cuboxi-firmware-wireless: Vendor firmware required for the wireless chips on the SolidRun i.MX6 based SOMs](https://github.com/SolidRun/deb-pkg_cuboxi-firmware-wireless)
+        - This repo SolidRun package firmware from vendor Broadcom  
+    - You can usually access the hardware registers and peripherals directly, even if the firmware is closed-source.
+    - firmware makes things easier, in baremetal programming we may still access hardware directly (firmware is like helper library)
+  
 ### How to use the prebuilt binary
 1. Better get a linux (for `dd` utility), or try [dd for windows](http://www.chrysocome.net/dd)
 2. use `dd` to copy the binary content of `SPL` and `u-boot.img` to microSD card
