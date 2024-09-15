@@ -21,11 +21,11 @@ jobs:
     # sudo chown :1000 testdir/
     # sudo chmod g+s testdir/
 
-      - name: Build the stack
+      - name: set permission and run
         run: |
-          docker compose up --build && docker compose down 
-    # ./build.sh
-        
+          sudo chmod -R +x . && \
+          ./build.sh
+          
       - working-directory: u-boot-imx6
         run: |
           mkdir dist && \
