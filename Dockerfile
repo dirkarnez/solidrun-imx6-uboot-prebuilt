@@ -39,8 +39,6 @@ RUN cd /opt; \
 RUN mkdir /workspace
 COPY . /workspace
 
-RUN chmod +x /workspace/makeimage.sh
-
 WORKDIR /workspace
 VOLUME /workspace
 

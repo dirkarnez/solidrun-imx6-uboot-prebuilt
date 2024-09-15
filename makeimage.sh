@@ -16,7 +16,6 @@ export CROSS_COMPILE="arm-none-linux-gnueabihf-"
 export UBOOT_CONFIG="mx6cuboxi_defconfig"
 which cc
 announce "Building u-boot"
-read -p "234234"
 make CC=arm-none-linux-gnueabihf-gcc "$UBOOT_CONFIG"
 make 
 announce "image build appears to have been successful"
