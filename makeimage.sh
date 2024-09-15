@@ -11,6 +11,11 @@ function announce () {
 
 set -e
 
+cd /opt; \
+   wget https://developer.arm.com/-/media/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz; \
+   tar xvfJ gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz; \
+   rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
+
 export PATH=/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH
 
 cd /workspace/u-boot-imx6
