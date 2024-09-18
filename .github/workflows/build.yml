@@ -15,18 +15,36 @@ jobs:
       image: debian:buster-slim
       env:
         DEBIAN_FRONTEND: noninteractive
-        CROSS_COMPILE: arm-linux-gnueabihf-
-
+        CROSS_COMPILE: arm-none-linux-gnueabihf-
+        PATH: "/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
     steps:
+      # - name: Install Dependencies
+      #   run: |
+      #     apt-get update
+      #     apt-get upgrade -y
+      #     apt-get install -y bc bison build-essential crossbuild-essential-armhf flex git libncurses-dev libssl-dev
+
       - name: Install Dependencies
         run: |
           apt-get update
           apt-get upgrade -y
-          apt-get install -y bc bison build-essential crossbuild-essential-armhf flex git libncurses-dev libssl-dev
+          apt-get install -y bc bison build-essential flex git libncurses-dev libssl-dev
 
-      - name: Checkout pull-request
-        uses: actions/checkout@v4
 
+      # RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
+      #    ln -f -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib && \
+      #    ln -f -s /usr/aarch64-linux-gnu/lib/libc.so.6 /lib && \
+      #    ln -f -s /usr/aarch64-linux-gnu/lib/libdl.so.2 /lib && \
+      #    ln -f -s /usr/aarch64-linux-gnu/lib/libm.so.6 /lib
+
+      - run: |
+          cd /opt; \
+          wget https://developer.arm.com/-/media/Files/downloads/gnu-a/10.3-2021.07/binrel/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz; \
+          tar xvfJ gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz; \
+          rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
+          
+      - uses: actions/checkout@v4
+      
       - name: Build eMMC data
         shell: bash
         working-directory: u-boot-imx6
