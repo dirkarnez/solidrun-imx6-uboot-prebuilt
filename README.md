@@ -3,8 +3,10 @@ solidrun-imx6-uboot-prebuilt
 - [i.MX6 U-Boot - Developer Center -  SolidRun](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287179374/i.MX6+U-Boot#Compiling-from-source)
     - `git clone --branch v2018.01-solidrun-imx6 https://github.com/SolidRun/u-boot.git /workspace/u-boot-imx6`
     - > Note: The resulting binaries are `SPL` and `u-boot.img`.
+    - Official prebuilts: [SolidRun Images](https://images.solid-run.com/IMX6)
 - [arm-linux-gnueabihf、aarch64-linux-gnu等ARM交叉编译GCC的区别_aarch64-elf-gcc aarch64-linux-gnu-CSDN博客](https://blog.csdn.net/Namcodream521/article/details/88379307)
 - [u-boot/board/solidrun/mx6cuboxi/README at v2018.01-solidrun-imx6 · SolidRun/u-boot](https://github.com/SolidRun/u-boot/blob/v2018.01-solidrun-imx6/board/solidrun/mx6cuboxi/README)
+
 ### Notes
 - Compiling u-boot requires Linux and **non-baremetal** gcc compiler
 - SPL = secondary program loader
