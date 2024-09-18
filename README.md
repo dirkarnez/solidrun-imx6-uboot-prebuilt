@@ -26,6 +26,7 @@ solidrun-imx6-uboot-prebuilt
       ```
     - ~Solution: I have changed `make SPL` target to `make _SPL`~
     - **DO NOT volume [`u-boot-imx6`](./u-boot-imx6) directly**
+- There is weird architecture issue in GitHub CICD that it cannot run [`docker-compose.yml`](./docker-compose.yml) properly
 
 ### How about firmwares
 - Firmwares are usually closed-source because it is written and provided by chip (e.g. WIFI chip) vendors
