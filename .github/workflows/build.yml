@@ -27,8 +27,24 @@ jobs:
         run: |
           apt-get update
           apt-get upgrade -y
-          apt-get install -y bc bison build-essential flex git libncurses-dev libssl-dev
-
+          apt-get install -y \
+          bc \
+          bison \
+          build-essential \
+          flex \
+          git \
+          libncurses-dev \
+          libssl-dev \
+          git \
+          zip \
+          unzip \
+          xz-utils \
+          wget \
+          curl \
+          ca-certificates \
+          make \
+          bash \
+          file
 
       # RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
       #    ln -f -s /usr/aarch64-linux-gnu/lib/ld-linux-aarch64.so.1 /lib && \
