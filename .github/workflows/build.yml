@@ -16,7 +16,6 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
         CROSS_COMPILE: arm-none-linux-gnueabihf-
-        PATH: "/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
     steps:
       # - name: Install Dependencies
       #   run: |
@@ -49,6 +48,7 @@ jobs:
         shell: bash
         working-directory: u-boot-imx6
         run: |
+          export PATH="/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
           make mx6cuboxi_defconfig
           make -j$(nproc)
           install -v -m644 -D SPL deploy/spl-imx6-emmc
@@ -58,6 +58,7 @@ jobs:
         shell: bash
         working-directory: u-boot-imx6
         run: |
+          export PATH="/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
           make mx6cuboxi_defconfig
           echo "CONFIG_SYS_MMC_ENV_PART=1" >> .config
           make -j$(nproc)
@@ -68,6 +69,7 @@ jobs:
         shell: bash
         working-directory: u-boot-imx6
         run: |
+          export PATH="/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
           make mx6cuboxi_defconfig
           echo "CONFIG_SYS_MMC_ENV_PART=2" >> .config
           make -j$(nproc)
@@ -78,6 +80,7 @@ jobs:
         shell: bash
         working-directory: u-boot-imx6
         run: |
+          export PATH="/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
           make mx6cuboxi_defconfig
           echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
           make -j$(nproc)
@@ -89,6 +92,7 @@ jobs:
         shell: bash
         working-directory: u-boot-imx6
         run: |
+          export PATH="/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
           make mx6cuboxi_defconfig
           echo "CONFIG_SPL_BOOT_DEVICE_SATA=y" >> .config
           echo "CONFIG_SCSI_AHCI=y" >> .config
@@ -103,6 +107,7 @@ jobs:
         shell: bash
         working-directory: u-boot-imx6
         run: |
+          export PATH="/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH"
           make mx6cuboxi_defconfig
           echo "CONFIG_SPL_BOOT_DEVICE_SPI_FLASH=y" >> .config
           make -j$(nproc)
