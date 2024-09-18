@@ -21,6 +21,10 @@ announce "Building u-boot"
 # make mrproper
 make mx6cuboxi_defconfig
 make -j8
-install -v -m644 -D SPL /dist/SPL
-install -v -m644 -D u-boot.img /dist/boot.img
 announce "image build appears to have been successful"
+announce "copying files"
+install -v -m644 -D ./SPL /dist/SPL
+install -v -m644 -D ./u-boot.img /dist/u-boot.img
+announce "files copied"
+
+
