@@ -41,9 +41,10 @@ RUN cd /opt; \
    rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
 
 RUN mkdir /workspace
-COPY . /workspace
+RUN mkdir /dist
 
+COPY . /workspace
 WORKDIR /workspace
-VOLUME /workspace
+VOLUME /dist
 
 CMD [ "bash", "./makeimage.sh" ]

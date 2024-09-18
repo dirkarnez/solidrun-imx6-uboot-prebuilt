@@ -18,7 +18,9 @@ export CROSS_COMPILE="arm-none-linux-gnueabihf-"
 # export UBOOT_CONFIG="mx6cuboxi_defconfig"
 which cc
 announce "Building u-boot"
-make mrproper
-make O=dist mx6cuboxi_defconfig
+# make mrproper
+make mx6cuboxi_defconfig
 make -j8
+install -v -m644 -D SPL /dist/SPL
+install -v -m644 -D u-boot.img /dist/boot.img
 announce "image build appears to have been successful"
