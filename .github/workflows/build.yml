@@ -11,11 +11,11 @@ jobs:
   fetch_compile_publish:
     runs-on: ubuntu-latest
     timeout-minutes: 30
-    container:
-      image: debian:buster-slim
-      env:
-        DEBIAN_FRONTEND: noninteractive
-        CROSS_COMPILE: arm-none-linux-gnueabihf-
+    # container:
+    #   image: debian:buster-slim
+    env:
+      DEBIAN_FRONTEND: noninteractive
+      CROSS_COMPILE: arm-none-linux-gnueabihf-
     steps:
       # - name: Install Dependencies
       #   run: |
