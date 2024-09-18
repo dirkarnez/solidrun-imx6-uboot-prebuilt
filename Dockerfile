@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
@@ -46,5 +46,4 @@ COPY . /workspace
 WORKDIR /workspace
 VOLUME /workspace
 
-CMD ls -la && \
-   ./makeimage.sh
+CMD [ "bash", "./makeimage.sh" ]

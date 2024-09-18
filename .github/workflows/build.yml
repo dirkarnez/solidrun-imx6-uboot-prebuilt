@@ -33,12 +33,6 @@ jobs:
         run: |
           sudo chmod -R +x . && \
           ./build.sh
-          
-      - working-directory: u-boot-imx6
-        run: |
-          mkdir dist && \
-          mv _SPL ./dist/SPL && \
-          mv 123.txt ./dist
 
       - name: Archive Release
         uses: thedoctor0/zip-release@master

@@ -33,7 +33,6 @@
 fit-dtb.blob
 /MLO*
 /SPL*
-/_SPL*
 /System.map
 /u-boot*
 /boards.cfg
