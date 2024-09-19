@@ -42,6 +42,8 @@ solidrun-imx6-uboot-prebuilt
       dd if=SPL of=/dev/sdX bs=1k seek=1 conv=sync
       dd if=u-boot.img of=/dev/sdX bs=1k seek=69 conv=sync
       ```
+      -  `of=\\.\DRIVE` on windows using [ported dd](http://www.chrysocome.net/dd)
+          - [Andy 的隨手寫技術筆記本: 利用DD For Windows Tools，在Windows 平台輸出Linux檔案](https://chenweichi.blogspot.com/2011/08/dd-for-windows-toolswindows-linux.html) 
     - > The Boot-ROM searches for the SPL after the first 1024 bytes. The SPL then looks for the full u-boot binary at both 69k and 42k. The dd command can be used for writing SPL and u-boot to these locations on your microSD card. Substitute sdX by the device node of your sdcard.
     - [i.MX6 U-Boot - Developer Center -  SolidRun](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287179374/i.MX6+U-Boot#Download-Binaries)
 3. Boot the microSD card
