@@ -20,6 +20,7 @@ which cc
 announce "Building u-boot"
 # make mrproper
 make mx6cuboxi_defconfig
+echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config # boot from sd card
 make -j8
 announce "image build appears to have been successful"
 announce "copying files"
