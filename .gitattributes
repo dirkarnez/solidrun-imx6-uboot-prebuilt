@@ -1,1 +1,2 @@
 makeimage.sh text=auto eol=lf
+/u-boot-imx6/* text=auto eol=lf

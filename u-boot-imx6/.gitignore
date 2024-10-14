@@ -42,7 +42,6 @@ fit-dtb.blob
 #
 !.gitignore
 !.mailmap
-!.github
 
 #
 # Generated files
