@@ -7,7 +7,15 @@ solidrun-imx6-uboot-prebuilt
 - [arm-linux-gnueabihf、aarch64-linux-gnu等ARM交叉编译GCC的区别_aarch64-elf-gcc aarch64-linux-gnu-CSDN博客](https://blog.csdn.net/Namcodream521/article/details/88379307)
 - [u-boot/board/solidrun/mx6cuboxi/README at v2018.01-solidrun-imx6 · SolidRun/u-boot](https://github.com/SolidRun/u-boot/blob/v2018.01-solidrun-imx6/board/solidrun/mx6cuboxi/README)
 
+### Standalone
+- ```sh
+  load mmc 0:1 ${loadaddr} hello_world
+  go ${loadaddr}
+  ```
 ### Notes
+- `int main` after uboot is done by uboot running `bootd` or `boot`, meaning "boot default" (different version use either one), they basically runs `bootcmd`
+    - modify bootcmd C marco code  for baremetal
+    - 
 - Compiling u-boot requires Linux and **non-baremetal** gcc compiler
 - SPL = secondary program loader
     - [u-boot spl 学习总结 - 小麦大叔 - 博客园](https://www.cnblogs.com/unclemac/p/12783383.html)
