@@ -16,13 +16,15 @@ export PATH=/opt/gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf/bin:$PATH
 cd /workspace/u-boot-imx6
 export CROSS_COMPILE="arm-none-linux-gnueabihf-"
 # boot from sd card
-echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
+# echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
 
 # export UBOOT_CONFIG="mx6cuboxi_defconfig"
 which cc
 announce "Building u-boot"
 # make mrproper
 make mx6cuboxi_defconfig
+
+echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
 
 make -j8
 announce "image build appears to have been successful"
