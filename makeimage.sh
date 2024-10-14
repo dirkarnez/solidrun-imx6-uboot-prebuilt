@@ -25,12 +25,12 @@ announce "Building u-boot"
 make mx6cuboxi_defconfig
 
 echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
+echo "CONFIG_EXAMPLES=y" >> .config
 
 make -j8
 announce "image build appears to have been successful"
 announce "copying files"
 install -v -m644 -D ./SPL /dist/SPL
 install -v -m644 -D ./u-boot.img /dist/u-boot.img
+install -v -m644 -D ./examples/standalone/hello_world.bin /dist/hello_world.bin
 announce "files copied"
-
-
