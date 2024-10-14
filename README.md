@@ -21,6 +21,8 @@ solidrun-imx6-uboot-prebuilt
         - Also, UBoot itself has some extra treatment to Linux kernel, **we cannot load baremetal applications just like Linux kernel**
         - Also, the tutorial points out that `CONFIG_STANDALONE_LOAD_ADDR` default value is just a random value that does not guarantee to be working on all Single Board Computers (it is set globally for CPU types like ARM)
         - Therefore, we should try `${loadaddr}` to load baremetal "hello_world" program
+        - https://github.com/allexoll/BBB-BareMetal/blob/master/Uboot/uEnv.txt
+        - https://github.com/rsta2/circle/blob/master/Rules.mk
 - Compiling u-boot requires Linux and **non-baremetal** gcc compiler
 - SPL = secondary program loader
     - [u-boot spl 学习总结 - 小麦大叔 - 博客园](https://www.cnblogs.com/unclemac/p/12783383.html)
