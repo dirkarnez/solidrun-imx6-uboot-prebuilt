@@ -13,6 +13,8 @@ solidrun-imx6-uboot-prebuilt
   load mmc 0:1 ${loadaddr} hello_world
   go ${loadaddr}
   ```
+  - undefined instruction
+      - [u-boot standalone程序出错原因_uboot standalone-CSDN博客](https://blog.csdn.net/kevinhe0472/article/details/8685358)
 ### Notes
 - `int main` after uboot is done by uboot running `bootd` or `boot`, meaning "boot default" (different version use either one), they basically runs `bootcmd`
     - modify bootcmd C marco code  for baremetal
