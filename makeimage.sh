@@ -25,6 +25,8 @@ announce "Building u-boot"
 make mx6cuboxi_defconfig
 
 echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
+# echo "CONFIG_STANDALONE_LOAD_ADDR=0x280000" >> .config
+echo "CONFIG_STANDALONE_LOAD_ADDR=0x43000000" >> .config
 echo "CONFIG_EXAMPLES=y" >> .config
 
 make -j8
