@@ -28,8 +28,8 @@ echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
 # echo "CONFIG_STANDALONE_LOAD_ADDR=0x280000" >> .config
 echo "CONFIG_STANDALONE_LOAD_ADDR=0x43000000" >> .config
 echo "CONFIG_EXAMPLES=y" >> .config
-
-make -j8
+echo "CONFIG_CC_OPTIMIZE_FOR_SPEED=y" >> .config
+make CONFIG_STANDALONE_LOAD_ADDR=0x43000000 -j8
 announce "image build appears to have been successful"
 announce "copying files"
 install -v -m644 -D ./SPL /dist/SPL
