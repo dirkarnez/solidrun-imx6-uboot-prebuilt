@@ -17,7 +17,7 @@ solidrun-imx6-uboot-prebuilt
 ### Standalone
 - To be tested
   ```sh
-  # try 0x10800000 
+  # try 0x10800000 and 0x40480000
   load mmc 0:1 $loadaddr hello_world # or load mmc 0:1 $kernel_addr_r
   go ${loadaddr}
   ```
