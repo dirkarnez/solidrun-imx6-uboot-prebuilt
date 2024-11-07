@@ -7,10 +7,14 @@ solidrun-imx6-uboot-prebuilt
 - [arm-linux-gnueabihf、aarch64-linux-gnu等ARM交叉编译GCC的区别_aarch64-elf-gcc aarch64-linux-gnu-CSDN博客](https://blog.csdn.net/Namcodream521/article/details/88379307)
 - [u-boot/board/solidrun/mx6cuboxi/README at v2018.01-solidrun-imx6 · SolidRun/u-boot](https://github.com/SolidRun/u-boot/blob/v2018.01-solidrun-imx6/board/solidrun/mx6cuboxi/README)
 
+### Android
+- https://github.com/rabeeh/android-imx6-kitkat
+
 ### Standalone
 - To be tested
   ```sh
-  load mmc 0:1 $loadaddr hello_world or load mmc 0:1 $kernel_addr_r
+  # try 0x10800000 
+  load mmc 0:1 $loadaddr hello_world # or load mmc 0:1 $kernel_addr_r
   go ${loadaddr}
   ```
   - undefined instruction
