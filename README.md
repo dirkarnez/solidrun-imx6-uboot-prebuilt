@@ -10,6 +10,10 @@ solidrun-imx6-uboot-prebuilt
 ### Android
 - https://github.com/rabeeh/android-imx6-kitkat
 
+### GPU
+- https://github.com/rabeeh/android-imx6-kitkat
+- https://github.com/zOrg1331/fsl-gpu-viv-mx6q
+
 ### Standalone
 - To be tested
   ```sh
