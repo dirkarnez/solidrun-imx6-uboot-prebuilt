@@ -10,7 +10,7 @@ solidrun-imx6-uboot-prebuilt
 ### Standalone
 - To be tested
   ```sh
-  load mmc 0:1 ${loadaddr} hello_world
+  load mmc 0:1 $loadaddr hello_world or load mmc 0:1 $kernel_addr_r
   go ${loadaddr}
   ```
   - undefined instruction
