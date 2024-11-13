@@ -14,7 +14,7 @@ set -e
 # export UBOOT_CONFIG="mx6cuboxi_defconfig"
 # make mrproper
 
-export PATH="/opt/gcc-linaro-7.5.0-2019.12-i686_arm-linux-gnueabihf/bin:$PATH" && \
+export PATH="/opt/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf/bin:$PATH" && \
 arm-linux-gnueabihf-gcc --version && \
 cd /workspace/u-boot-imx6 && \
 export CROSS_COMPILE="arm-linux-gnueabihf-" && \
