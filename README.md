@@ -17,6 +17,7 @@ solidrun-imx6-uboot-prebuilt
 ### Standalone
 - To be tested
   ```sh
+  # 0x12000000  from https://github.com/slimjim777/cubox-gadget/blob/01999f457f006efdba00a9900413b9cd555a1908/uboot.env.in and https://github.com/evandandrea/hummingboard-gadget/blob/master/uboot.env.in
   # try 0x10800000 and 0x40480000
   load mmc 0:1 $loadaddr hello_world # or load mmc 0:1 $kernel_addr_r
   go ${loadaddr}
