@@ -50,9 +50,9 @@ RUN apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu && \
 #    rm gcc-arm-10.3-2021.07-aarch64-arm-none-linux-gnueabihf.tar.xz
 
 RUN cd /opt; \
-   wget https://releases.linaro.org/components/toolchain/binaries/6.5-2018.12/arm-linux-gnueabihf/gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf.tar.xz && \
-   tar xvfJ gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf.tar.xz && \
-   rm gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf.tar.xz && \
+   wget https://releases.linaro.org/components/toolchain/binaries/6.5-2018.12/arm-linux-gnueabihf/gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf.tar.xz && \
+   tar xvfJ gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf.tar.xz && \
+   rm gcc-linaro-6.5.0-2018.12-i686_arm-linux-gnueabihf.tar.xz && \
    chmod -R +x . 
 
 RUN mkdir /workspace
