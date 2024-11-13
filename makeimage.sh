@@ -21,7 +21,7 @@ export CROSS_COMPILE="arm-linux-gnueabihf-" && \
 announce "Building u-boot" && \
 make mx6cuboxi_defconfig && \
 echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config && \
-make -j8 && \
+CROSS_COMPILE=arm-linux-gnueabihf- make -j8 && \
 announce "image build appears to have been successful" && \
 announce "copying files" && \
 install -v -m644 -D ./SPL /dist/SPL && \
