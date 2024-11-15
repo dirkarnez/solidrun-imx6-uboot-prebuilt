@@ -10,6 +10,10 @@ solidrun-imx6-uboot-prebuilt
 ### Android
 - https://github.com/rabeeh/android-imx6-kitkat
 
+### Create SD card
+- Windows
+    - to remove partitions
+        - admin's cmd: `diskpart` -> `list disk` -> `select disk {N}` -> `clean`
 ### GPU
 - https://github.com/rabeeh/android-imx6-kitkat
 - https://github.com/zOrg1331/fsl-gpu-viv-mx6q
