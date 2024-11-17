@@ -13,7 +13,7 @@ sudo mkfs.fat -F32 -v -n "BOOT" /dev/sdb1
 sudo dd if=SPL of=/dev/sdb bs=1k seek=1 conv=sync
 sudo dd if=u-boot.img of=/dev/sdb bs=1k seek=69 conv=sync
 
-sudo cp hello_world.bin /media/user/BOOT
+sudo cp hello_world.bin /media/home/BOOT
 
 sync
 
