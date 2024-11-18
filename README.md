@@ -20,6 +20,7 @@ solidrun-imx6-uboot-prebuilt
 
 ### Standalone
 - To be tested
+    - [Build and run of a simple hello world application on the Cortex®-M4/7 — Ka-Ro electronics GmbH documentation](https://karo-electronics.github.io/docs/software-documentation/tx8/cortexm4/nxp-cm4-hello-world.html)
   ```sh
   # => load mmc 0 $m4loadaddr hello_world.bin => dcache flush => bootaux $m4loadaddr
   # 0x12000000  from https://github.com/slimjim777/cubox-gadget/blob/01999f457f006efdba00a9900413b9cd555a1908/uboot.env.in and https://github.com/evandandrea/hummingboard-gadget/blob/master/uboot.env.in
