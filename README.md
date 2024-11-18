@@ -1,5 +1,5 @@
-solidrun-imx6-uboot-prebuilt
-============================
+solidrun-imx6-u-boot-prebuilt
+=============================
 - [i.MX6 U-Boot - Developer Center -  SolidRun](https://solidrun.atlassian.net/wiki/spaces/developer/pages/287179374/i.MX6+U-Boot#Compiling-from-source)
     - `git clone --branch v2018.01-solidrun-imx6 https://github.com/SolidRun/u-boot.git /workspace/u-boot-imx6`
     - > Note: The resulting binaries are `SPL` and `u-boot.img`.
@@ -21,6 +21,7 @@ solidrun-imx6-uboot-prebuilt
 ### Standalone
 - To be tested
     - [Build and run of a simple hello world application on the Cortex®-M4/7 — Ka-Ro electronics GmbH documentation](https://karo-electronics.github.io/docs/software-documentation/tx8/cortexm4/nxp-cm4-hello-world.html)
+    - [FreeRTOS SDK v2.3 for i.MX 8MQ | Laird Connectivity is Now Ezurio](https://www.ezurio.com/resources/software-announcements/freertos-sdk-v2-3-for-i-mx8mq)
   ```sh
   # => load mmc 0 $m4loadaddr hello_world.bin => dcache flush => bootaux $m4loadaddr
   # 0x12000000  from https://github.com/slimjim777/cubox-gadget/blob/01999f457f006efdba00a9900413b9cd555a1908/uboot.env.in and https://github.com/evandandrea/hummingboard-gadget/blob/master/uboot.env.in
