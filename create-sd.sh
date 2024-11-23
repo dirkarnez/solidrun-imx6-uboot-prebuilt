@@ -1,18 +1,19 @@
 #!/bin/bash
 
-sudo parted -s /dev/sdb mklabel msdos
+node=
+sudo parted -s /dev/${node} mklabel msdos
 
-sudo sfdisk /dev/sdb<<EOF
+sudo sfdisk /dev/${node}<<EOF
 label: dos
 16065,128520,0x0C,*
 144585,,,-
 EOF
 
-sudo mkfs.fat -F32 -v -n "BOOT" /dev/sda1
-sudo mkfs.ext4 -F -L "rootfs" /dev/sda2
+sudo mkfs.fat -F32 -v -n "BOOT" /dev/${node}1
+sudo mkfs.ext4 -F -L "rootfs" /dev/${node}2
 
-sudo dd if=SPL of=/dev/sda bs=1k seek=1 conv=sync
-sudo dd if=u-boot.img of=/dev/sda bs=1k seek=69 conv=sync
+sudo dd if=SPL of=/dev/${node} bs=1k seek=1 conv=sync
+sudo dd if=u-boot.img of=/dev/${node} bs=1k seek=69 conv=sync
 
 # sudo cp hello_world.bin /media/home/BOOT
 
