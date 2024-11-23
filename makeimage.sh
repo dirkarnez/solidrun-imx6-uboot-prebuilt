@@ -26,13 +26,17 @@ make mx6cuboxi_defconfig
 
 echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
 # echo "CONFIG_STANDALONE_LOAD_ADDR=0x280000" >> .config
-echo "CONFIG_STANDALONE_LOAD_ADDR=0x43000000" >> .config
-echo "CONFIG_EXAMPLES=y" >> .config
-echo "CONFIG_CC_OPTIMIZE_FOR_SPEED=y" >> .config
-make CONFIG_STANDALONE_LOAD_ADDR=0x43000000 -j8
+# echo "CONFIG_STANDALONE_LOAD_ADDR=0x12000000" >> .config
+# echo "CONFIG_EXAMPLES=y" >> .config
+# echo "CONFIG_CC_OPTIMIZE_FOR_SPEED=y" >> .config
+echo "CONFIG_BOOTCOMMAND=\"load mmc 0:1 \${fdt_addr_r}; load mmc 0:1 \${kernel_addr_r} ; setenv bootargs console=ttymxc0,115200n8 root=/dev/mmcblk0p1 rootfstype=auto rootwait; bootz \${kernel_addr_r} - \${fdt_addr_r}\"" >> .config
+# make CONFIG_STANDALONE_LOAD_ADDR=0x12000000 -j8
+make -j8
 announce "image build appears to have been successful"
 announce "copying files"
+ls
 install -v -m644 -D ./SPL /dist/SPL
 install -v -m644 -D ./u-boot.img /dist/u-boot.img
 install -v -m644 -D ./examples/standalone/hello_world.bin /dist/hello_world.bin
 announce "files copied"
+read -p "ok"
