@@ -67,7 +67,11 @@ solidrun-imx6-u-boot-prebuilt
         - This repo SolidRun package firmware from vendor Broadcom  
     - You can usually access the hardware registers and peripherals directly, even if the firmware is closed-source.
     - firmware makes things easier, in baremetal programming we may still access hardware directly (firmware is like helper library)
-  
+
+### `sfdisk`
+- [管理磁盘分区的 Linux sfdisk 命令示例-云社区-华为云](https://bbs.huaweicloud.com/blogs/380188)
+- [sfdisk(8): Partition table manipulator for - Linux man page](https://linux.die.net/man/8/sfdisk)
+
 ### How to use the prebuilt binary
 1. Better get a linux (for `dd` utility), or try [dd for windows](http://www.chrysocome.net/dd)
 2. use `dd` to copy the binary content of `SPL` and `u-boot.img` to microSD card
