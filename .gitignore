@@ -1,4 +1,6 @@
 bin
 tmp
 .DS_Store
-/dist
+/dist/*
+!/dist/README.md
+!/dist/boot.cmd

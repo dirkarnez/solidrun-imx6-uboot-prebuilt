@@ -23,15 +23,15 @@ which cc
 announce "Building u-boot"
 # make mrproper
 make mx6cuboxi_defconfig
-
 echo "CONFIG_SPL_BOOT_DEVICE_SDHC=y" >> .config
 # echo "CONFIG_STANDALONE_LOAD_ADDR=0x280000" >> .config
 # echo "CONFIG_STANDALONE_LOAD_ADDR=0x12000000" >> .config
 # echo "CONFIG_EXAMPLES=y" >> .config
-# echo "CONFIG_CC_OPTIMIZE_FOR_SPEED=y" >> .config
-echo "CONFIG_BOOTCOMMAND=\"load mmc 0:1 \${fdt_addr_r}; load mmc 0:1 \${kernel_addr_r} ; setenv bootargs console=ttymxc0,115200n8 root=/dev/mmcblk0p1 rootfstype=auto rootwait; bootz \${kernel_addr_r} - \${fdt_addr_r}\"" >> .config
+# echo "CONFIG_USE_BOOTCOMMAND=y" >> .config
+# echo "CONFIG_BOOTCOMMAND=\"load mmc 0:1 \${fdt_addr_r} imx6q-hummingboard-emmc-som-v15.dtb; load mmc 0:1 \${kernel_addr_r} zImage; load mmc 0:1 \${ramdisk_addr_r} init.cpio; setenv bootargs console=ttymxc0,115200n8 root=/dev/mmcblk0p1 rootfstype=auto rootwait; bootz \${kernel_addr_r} \${ramdisk_addr_r}:\${filesize} \${fdt_addr_r}\"" >> .config
 # make CONFIG_STANDALONE_LOAD_ADDR=0x12000000 -j8
 make -j8
+./tools/mkimage -C none -A arm -T script -d ../boot.cmd /dist/boot.scr
 announce "image build appears to have been successful"
 announce "copying files"
 ls
